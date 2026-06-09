@@ -323,6 +323,84 @@ transform: scale(1.05);
 
 }
 
+@media (max-width: 992px) {
+      /* Transição intermediária para tablets: quebra em 2 colunas */
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Ajuste no Menu Superior */
+      header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        gap: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 5px;
+        font-size: 14px;
+      }
+
+      /* Ajuste no Banner de Boas-Vindas */
+      .banner {
+        flex-direction: column-reverse; /* Imagem fica no topo e texto embaixo */
+        margin: 15px;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .banner h2 {
+        font-size: 32px;
+        margin: 0 auto;
+      }
+
+      .banner p {
+        font-size: 16px;
+        margin: 15px auto;
+      }
+
+      .banner button {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+      }
+
+      .caderno img {
+        max-width: 280px; /* Reduz o tamanho do caderno para caber na tela do celular */
+      }
+
+      /* Ajuste no Bloco de Títulos */
+      .topo-aulas {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      /* Transformação dos Cards (1 por linha no celular) */
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        align-items: center; /* Centraliza itens internos do card no mobile */
+        text-align: center;
+        min-height: auto;
+      }
+    }
 
     </style>
 
