@@ -6,291 +6,361 @@
   <title>Partitura Fácil</title>
 
   <style>
-
+    /* 1. RESET E CONFIGURAÇÕES GERAIS */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     body {
       background: #fffdf8;
       color: #0b1b3f;
-      
-   
+      overflow-x: hidden; /* Garante que nada crie barra de rolagem para os lados */
     }
 
+    /* 2. CABEÇALHO E MENU (TOTALMENTE ALINHADOS) */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 25px 50px;
+      padding: 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
-      flex-wrap: nowrap;
     }
 
-
-
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo span {
+      font-size: 38px;
+      color: #0b1b3f;
+    }
+
+    .logo h1 {
+      font-family: Georgia, serif;
+      font-size: 24px;
+    }
+
+    .logo p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    nav {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .logo span {
-      font-size: 45px;
-
-    }
-
-    .logo h1 {
-      font-family: Georgia, serif;
-
-    }
-
-    .logo p {
-      font-size: 14px;
-      color: #666;
-      margin-top: 0px;
-      margin-left: 0px; 
-    }
-
-
-    nav{
-      display: flex;
-      gap: 20px;
-    }
-
     nav a {
       text-decoration: none;
       color: #111;
-      margin: 0 18px;
+      padding: 8px 16px;
       font-weight: bold;
-      margin-top: 10px;
-       white-space: nowrap;
+      font-size: 14px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
     }
 
     nav a:hover,
     .ativo {
       background: #5b3cc4;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 15px;
+      color: white !important;
     }
 
-    .linha {
-    width: 60px;
-    height: 4px;
-    background-color: #6B46E5;
-    border-radius: 10px;
-    margin-top: 35px;
-    margin-bottom: 25px;
-    }
-
-    .ativo{
-    padding: 15px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 15px;
-    } 
-
-    ativo:hover {
-    background: #6f52e8;
-    transform: scale(1.05);
-}
-
-
+    /* 3. BLOCOS DE CONTEÚDO (FLEXÍVEIS E SEGUROS) */
     .banner {
-      margin: 20px 40px;
-      padding: 60px;
-      border-radius: 18px;
-      background: linear-gradient(120deg, #f3eaff, #fff7e6);
+      margin: 20px auto;
+      padding: 40px;
+      max-width: 1120px;
+      width: calc(100% - 40px);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f3eaff, #fff7e6);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 40px;
+    }
+
+    .banner-texto {
+      flex: 1;
+    }
+
+    .banner-texto .subtitulo {
+      font-weight: bold;
+      color: #6B46E5;
+      letter-spacing: 1px;
+      font-size: 13px;
+      margin-bottom: 5px;
     }
 
     .banner h1 {
       font-family: Georgia, serif;
-      font-size: 60px;
-      max-width: 520px;
-      margin-top: 20px;
-      white-space: nowrap;
-      margin-right: 30px;
-
-
+      font-size: 42px;
+      color: #0b1b3f;
+      line-height: 1.2;
     }
 
-
-    .banner p {
-      font-size: 15px;
-      max-width: 500px;
-      line-height: 1.5;
-      background: #EDE6FF;
-      color: #6B46E5;
-    margin-right: 20px;
-      
+    .linha {
+      width: 50px;
+      height: 4px;
+      background-color: #6B46E5;
+      border-radius: 10px;
+      margin: 15px 0;
     }
 
-    .conteudo p{
-    color: #4D5870;
-    margin-bottom:  16px;
-    font-size: 18px;
-    margin-top: 35px;
+    .conteudo p {
+      color: #4D5870;
+      margin-bottom: 14px;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    .simbolo img{
-    width: 700px;
-     height: auto;
-     border-radius: 12px;
-     margin-left: -150px;
-
-}
-
-.estrela{
-    color: #8B5CF6;
-    font-size: 40px;
-    margin-right: 10px;
-}
-
-    .projeto{
-        margin-left: 90px;
-        
+    .simbolo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .projeto h2{
-     font-family: Georgia, serif;
-     font-size: 35px;
+    /* Impede que a imagem da clave de sol saia do bloco */
+    .simbolo img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
     }
 
-    .projeto span{
-        font-family: Georgia, serif;
-
+    /* 4. SEÇÃO NOSSO PROJETO */
+    .projeto-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1120px;
+      margin: 60px auto;
+      width: calc(100% - 40px);
     }
 
-    .conteudo2 p{
-        margin-bottom: 16px;
-        margin-top: 20px;
-        font-size: 18px;
+    .projeto {
+      flex: 1;
+    }
 
+    .projeto h2, .como-utilizar h2 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      color: #0b1b3f;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 50px;
+    }
 
+    .projeto p{
+        margin-left: 50px;
+    }
+
+    .estrela {
+      color: #8B5CF6;
+      font-size: 28px;
     }
 
     .conteudo2 {
-    max-width: 500px;
-    margin-top: 40px;
+      margin-top: 20px;
     }
 
-    .simbolo2 img{
-    width: 450px;
-    height: auto;
-}
+    .conteudo2 p {
+      margin-bottom: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4D5870;
+    }
 
-    .projeto-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
-    margin-top: 60px;
-}
+    .simbolo2 {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.como-utilizar{
-    margin-top: 80px;
-    margin-left: 90px;
-}
+    /* Impede que o notebook passe dos limites */
+    .simbolo2 img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+    }
 
-.como-utilizar h2{
-    font-family: Georgia, serif;
-    font-size: 35px;
-    margin-bottom: 40px;
-}
+    /* 5. SEÇÃO COMO UTILIZAR O SITE (CARDS EM GRADE DINÂMICA) */
+    .como-utilizar {
+      max-width: 1120px;
+      margin: 60px auto;
+      width: calc(100% - 40px);
+    }
 
-.passos{
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+    .como-utilizar h2 {
+      margin-bottom: 30px;
+    }
 
-.passo{
-    width: 250px;
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+    .passos {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
 
-.icone{
-    width: 60px;
-    height: 60px;
-    background: #EDE6FF;
-    color: #6B46E5;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    margin-bottom: 20px;
-}
+    .passo {
+      flex: 1;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(107, 70, 229, 0.05);
+      text-align: center; /* Centraliza os ícones e textos nos cards */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.passo h3{
-    font-family: Georgia, serif;
-    margin-bottom: 12px;
-    font-size: 30px;
-}
+    .icone {
+      width: 60px;
+      height: 60px;
+      background: #EDE6FF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
 
-.passo p{
+    .passo h3 {
+      font-family: Georgia, serif;
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: #0b1b3f;
+    }
 
-    line-height: 1.6;
-    font-size: 18px;
-}
+    .passo p {
+      line-height: 1.5;
+      font-size: 15px;
+      color: #555;
+    }
 
-.agradecimento{
-    display: flex;
-    justify-content: center;
-    margin: 100px 0;
-}
+    /* 6. CARD DE AGRADECIMENTO FINAL */
+    .agradecimento {
+      max-width: 1120px;
+      margin: 80px auto;
+      width: calc(100% - 40px);
+      display: flex;
+      justify-content: center;
+    }
 
-.agradecimento-card{
-    background: linear-gradient(120deg, #f3eaff, #fff7e6);
-    padding: 60px;
-    border-radius: 25px;
-    text-align: center;
-    max-width: 900px;
-}
+    .agradecimento-card {
+      background: linear-gradient(135deg, #f3eaff, #fff7e6);
+      padding: 50px 30px;
+      border-radius: 24px;
+      text-align: center;
+      width: 100%;
+    }
 
-.icone-final{
-    font-size: 50px;
-    margin-bottom: 20px;
-    color: #6B46E5;
-}
+    .agradecimento-card h2 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      color: #6B46E5;
+      margin-bottom: 15px;
+    }
 
-.agradecimento-card h2{
-    font-family: Georgia, serif;
-    font-size: 40px;
-    color: #6B46E5;
-    margin-bottom: 20px;
-    white-space: nowrap;
-    margin-left: -60px;
-}
-
-.agradecimento-card p{
-    color: #6B46E5;
-    font-size: 18px;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-
+    .agradecimento-card p {
+      color: #6B46E5;
+      font-size: 16px;
+      font-weight: 500;
+    }
 
 
+    /* =======================================================
+       7. REGRAS EXCLUSIVAS PARA O CELULAR (MEDIA QUERIES)
+       ======================================================= */
+    @media (max-width: 768px) {
+      /* Cabeçalho vira coluna e centraliza tudo */
+      header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        gap: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      nav a {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+
+      /* Banner inverte para empilhar: texto em cima, imagem embaixo */
+      .banner {
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .banner h1 {
+        font-size: 28px;
+      }
+
+      .linha {
+        margin: 15px auto; /* Centraliza a linha roxa no celular */
+      }
+
+      .simbolo img, .simbolo2 img {
+        max-width: 260px; /* Reduz o tamanho das imagens para caberem fofas na tela */
+      }
+
+      /* Seção Projeto empilha horizontalmente */
+      .projeto-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 40px auto;
+        gap: 30px;
+      }
+
+      .projeto h2, .como-utilizar h2 {
+        font-size: 24px;
+        justify-content: center;
+      }
+
+      /* Cards de passos empilham um embaixo do outro perfeitamente */
+      .passos {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .passo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* Ajuste de letras do final */
+      .agradecimento-card {
+        padding: 35px 20px;
+      }
+
+      .agradecimento-card h2 {
+        font-size: 22px;
+      }
+    }
   </style>
-
 </head>
 
 <body>
-    <header>
+  <header>
     <div class="logo">
       <span>𝄞</span>
       <div>
@@ -301,140 +371,85 @@
     
     <nav>
       <a href="index.html" class="ativo">Início</a>
-      <a href="miniaulas.html" class="ativo">Aulas</a>
-      <a href="atividades.html" class="ativo">Atividades</a>
-      <a href="https://chatgpt.com/g/g-6a2003515d748191a721204fae2d2b60-professor-de-ia" class="ativo">🤖 Assistente com IA</a>
+      <a href="miniaulas.html">Aulas</a>
+      <a href="atividades.html">Atividades</a>
+      <a href="https://chatgpt.com/g/g-6a2003515d748191a721204fae2d2b60-professor-de-ia" target="_blank">🤖 Assistente com IA</a>
     </nav>
   </header>
 
   <main>
-
-  <div class="banner">
-
-<div>
-
-<p>
-QUEM SOMOS
-</p>
-
-<h1>
-Partitura Fácil
-</h1>
-
-
-<div class="linha"></div>
-
-<div class="conteudo">
-
-<p>O Site Partitura Fácil é uma plataforma criada para ajudar iniciantes a entender o básico sobre a leitura de partituras de forma simples, prática e organizada</p>
-<p>Nosso objetivo é tornar o estudo da música mais acessível para todos, especialmente para quem está dando os primeiros passos no aprendizado musical.</p>
- 
-</div>
-
-</div>
- 
-<div class="simbolo">
-
-    <img src="conteudo.png" alt="imagem">
-
-</div>
-
-</div>
-
-<section>
-
-    <div>
-
-    <div class="projeto-container">
-
-    <div class="projeto">
-
-    <h2><span class="estrela">★</span> Nosso Projeto</h2>
-
-    <div class="conteudo2">
-
-    <p>
-        Atualmente, o Partitura Fácil é um projeto em desenvolvimento.
-        Estamos trabalhando para adicionar novas aulas,
-        atividades, exercícios e recursos que auxiliem no aprendizado
-        da leitura musical.
-    </p>
-
-    <p>
-        Ao longo do tempo, nossa biblioteca de
-        conteúdos será ampliada, disponibilizando novas aulas, exercícios
-        e ferramentas que os ajudem a evoluírem cada vez mais.
-    </p>
-
+    
+    <div class="banner">
+      <div class="banner-texto">
+        <p class="subtitulo">QUEM SOMOS</p>
+        <h1>Partitura Fácil</h1>
+        <div class="linha"></div>
+        <div class="conteudo">
+          <p>O Site Partitura Fácil é uma plataforma criada para ajudar iniciantes a entender o básico sobre a leitura de partituras de forma simples, prática e organizada.</p>
+          <p>Nosso objetivo é tornar o estudo da música mais acessível para todos, especialmente para quem está dando os primeiros passos no aprendizado musical.</p>
+        </div>
+      </div>
+       
+      <div class="simbolo">
+        <img src="conteudo.png" alt="Clave de Sol">
+      </div>
     </div>
 
-    </div>
+    <section class="projeto-container">
+      <div class="projeto">
+        <h2><span class="estrela">★</span> Nosso Projeto</h2>
+        <div class="conteudo2">
+          <p>
+            Atualmente, o Partitura Fácil é um projeto em desenvolvimento.
+            Estamos trabalhando para adicionar novas aulas,
+            atividades, exercícios e recursos que auxiliem no aprendizado
+            da leitura musical.
+          </p>
+          <p>
+            Ao longo do tempo, nossa biblioteca de
+            conteúdos será ampliada, disponibilizando novas aulas, exercícios
+            e ferramentas que os ajudem a evoluírem cada vez mais.
+          </p>
+        </div>
+      </div>
 
-    <div class="simbolo2">
-
-    <img src="conteudo2.png" alt="imagem">
-
-    </div>
-
-    </div>
-
-    </div>
+      <div class="simbolo2">
+        <img src="conteudo2.png" alt="Notebook com notas musicais">
+      </div>
+    </section>
 
     <section class="como-utilizar">
-
-    <h2><span class="estrela">★</span> Como Utilizar o Site</h2>
-
-    <div class="passos">
-
+      <h2><span class="estrela">★</span> Como Utilizar o Site</h2>
+      <div class="passos">
+        
         <div class="passo">
-            <div class="icone">📚</div>
-            <h3>Passo 1</h3>
-            <p>Assista às mini aulas disponíveis na plataforma.</p>
+          <div class="icone">📚</div>
+          <h3>Passo 1</h3>
+          <p>Assista às mini aulas disponíveis na plataforma.</p>
         </div>
 
         <div class="passo">
-            <div class="icone">📝</div>
-            <h3>Passo 2</h3>
-            <p>Realize as atividades para praticar o conteúdo estudado.</p>
+          <div class="icone">📝</div>
+          <h3>Passo 2</h3>
+          <p>Realize as atividades para praticar o conteúdo estudado.</p>
         </div>
 
         <div class="passo">
-            <div class="icone">🤖</div>
-            <h3>Passo 3</h3>
-            <p>Utilize o Assistente com IA sempre que tiver dúvidas.</p>
+          <div class="icone">🤖</div>
+          <h3>Passo 3</h3>
+          <p>Utilize o Assistente com IA sempre que tiver dúvidas.</p>
         </div>
 
-
-    </div>
+      </div>
+    </section>
 
     <section class="agradecimento">
-
-    <div class="agradecimento-card">
-
-
-
+      <div class="agradecimento-card">
         <h2>Obrigado por fazer parte do Partitura Fácil! ♫</h2>
+        <p>Vamos juntos nessa jornada musical!</p>
+      </div>
+    </section>
 
-        <p>
-            Vamos juntos nessa jornada musical!
-        </p>
-
-    </div>
-
-</section>
-
-
-</section>
-</section>
-
-
-
-
-
-</main>
-
-
-
-
+  </main>
 </body>
 </html>
