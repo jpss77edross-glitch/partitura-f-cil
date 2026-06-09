@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partitura Fácil</title>
+
+<style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fffdf8;
+      color: #0b1b3f;
+      
+   
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      font-size: 45px;
+
+    }
+
+    .logo h1 {
+      font-family: Georgia, serif;
+
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 0px;
+      margin-left: 0px; 
+    }
+
+
+    nav{
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      margin: 0 18px;
+      font-weight: bold;
+      margin-top: 10px;
+       white-space: nowrap;
+    }
+
+    nav a:hover,
+    .ativo {
+      background: #5b3cc4;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 15px;
+    }
+
+    .ativo{
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+    } 
+
+    ativo:hover {
+    background: #6f52e8;
+    transform: scale(1.05);
+}
+
+
+    .banner {
+      margin: 20px 40px;
+      padding: 60px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #f3eaff, #fff7e6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .banner h2 {
+      font-family: Georgia, serif;
+      font-size: 55px;
+      max-width: 520px;
+    }
+
+    .banner h2 span {
+      color: #5b3cc4;
+    }
+
+    .banner p {
+      font-size: 20px;
+      margin: 25px 0;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .banner button {
+      background: #5b3cc4;
+      color: white;
+      border: none;
+      padding: 18px 35px;
+      font-size: 18px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    .caderno img{
+      font-size: 10px;
+      background: white;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px #0002;
+      width: 550px;
+    }
+
+     section{
+         padding: 25px 40px;
+     }
+
+   .titulo  {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: flex;
+      color:#5b3cc4 ;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+     .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      padding: 25px;
+      min-height: 260px;
+      box-shadow: 0 5px 15px #0001;
+      transition: 0.3s;
+    }
+
+     .card:hover {
+      transform: translateY(-8px);
+    }
+      .numero1 {
+      width: 35px;
+      height: 35px;
+      background:rgb(110, 180, 4) ;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .numero2 {
+      width: 35px;
+      height: 35px;
+      background:#5b3cc4 ;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .numero3 {
+      width: 35px;
+      height: 35px;
+      background:orange ;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .numero4 {
+      width: 35px;
+      height: 35px;
+      background:rgb(180, 39, 4) ;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card img,
+    .icone {
+      font-size: 70px;
+      margin: 10px 0;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+      .card p {
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .card-link{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+
+    } 
+
+    .btn-aula{
+      background:#5b3cc4;
+
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:15px;
+font-size:13px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+margin-top: 5px;
+
+}
+
+.btn-aula:hover{
+background:#4a2eb3;
+transform:scale(1.05);
+}
+
+.botao2{
+  margin-top:27px;
+  font-size: 15px;
+}
+
+.botao3{
+  margin-top:27px;
+  font-size: 15px;
+}
+
+.botao4{
+  margin-top:5px;
+  font-size: 15px;
+}
+
+.aula1 p{
+  color:rgb(110, 180, 4) ;
+
+}
+
+.aula2 p{
+  color: #5b3cc4;
+
+}
+
+.aula3 p{
+  color:orange
+
+}
+
+.aula4 p{
+  color:rgb(180, 39, 4) ;
+
+}
+
+.topo-aulas{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.ver-todas{
+text-decoration:none;
+color:#5b3cc4;
+font-weight:bold;
+font-size:18px;
+cursor: pointer;
+transition: 0,3s;
+
+}
+
+.ver-todas:hover{
+opacity:0.7;
+transform: scale(1.05);
+
+}
+
+
+    </style>
+
+    </head>
+
+<body>
+  <header>
+    <div class="logo">
+      <span>𝄞</span>
+      <div>
+        <h1>Partitura Fácil</h1>
+        <p>Aprenda música passo a passo.</p>
+      </div>
+    </div> 
+    
+    <nav>
+      <a href="miniaulas.html" class="ativo">Aulas</a>
+      <a href="atividades.html" class="ativo">Atividades</a>
+      <a href="https://chatgpt.com/g/g-6a2003515d748191a721204fae2d2b60-professor-de-ia" class="ativo">🤖 Assistente com IA</a>
+      <a href="quemsomos.html" class="ativo">Sobre</a>
+    </nav>
+
+  </header>
+
+ <main>
+
+<div class="banner">
+
+<div>
+
+<h2>
+Aprenda partituras
+<span>de um jeito simples</span>
+</h2>
+
+<p>
+Mini aulas, exercícios e atividades
+para você entender notas, ritmos
+e leitura musical.
+</p>
+
+<a href="miniaulas.html" class="card-link">
+<button>♫ Começar agora</button>
+</a>
+
+</div>
+
+<div class="caderno">
+
+<img src="livro.png.png">
+
+</div>
+
+</div> 
+
+<section>
+
+<div class="topo-aulas">
+
+<h2 class="titulo">
+🎓 Mini Aulas
+</h2>
+
+<a href="miniaulas.html" class="ver-todas">
+ver todas ➔
+</a>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="numero1">1</div>
+
+<div class="icone">🎼</div>
+
+<div class="aula1">
+<p>Aula 1</p>
+</div>
+
+<h3>O que é uma partitura?</h3>
+
+<p>
+Aprenda as partes básicas
+e como a música é escrita.
+</p>
+
+<a href="aula1.mp4" class="card-link">
+<button class="btn-aula">
+  Começar aula
+</button>
+</a>
+
+</div>
+</a>
+
+
+<div class="card">
+  <div class="numero2">2</div>
+  <div class="icone">𝄞</div>
+
+  <div class="aula2">
+  <p>Aula 2</p>
+  </div>
+
+  <h3>Clave de Sol</h3>
+  <p>Entenda onde as notas ficam posicionadas na partitura na clave de sol</p>
+
+  <div class="botao2">
+  <a href="aula2.mp4" class="card-link">
+    <button class="btn-aula">
+      Começar aula
+    </button>
+  </a>
+  </div>
+
+
+</div>
+</a>
+
+
+<div class="card">
+  <div class="numero3">3</div>
+  <div class="icone">𝄢</div>
+
+  <div class="aula3">
+  <p>Aula 3</p>
+  </div>
+
+  <h3>Clave de Fá</h3>
+  <p>Entenda onde as notas ficam psicionadas na partitura na clave de fá</p>
+
+
+  <div class="botao3">
+  <a href="aula3.mp4" class="card-link">
+    <button class="btn-aula">
+      Começar aula
+    </button>
+  </a>
+  </div>
+
+
+</div>
+</a>
+
+
+<div class="card">
+  <div class="numero4">4</div>
+  <div class="icone">♩♪</div>
+
+  <div class="aula4">
+  <p>aula 4</p>
+  </div>
+
+  <h3>Tempo das notas</h3>
+  <p>Aprenda semínima, mínima, colcheias e sinais na partitura</p>
+
+  <div class="botao4">
+  <a href="aula4.mp4" class="card-link">
+    <button class="btn-aula">
+      Começar aula
+    </button>
+  </a>
+  </div>
+</section>
+
+
+
+</main>
+
+</body>
+
+</html>

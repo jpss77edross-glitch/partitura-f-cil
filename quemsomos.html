@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partitura Fácil</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fffdf8;
+      color: #0b1b3f;
+      
+   
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      font-size: 45px;
+
+    }
+
+    .logo h1 {
+      font-family: Georgia, serif;
+
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 0px;
+      margin-left: 0px; 
+    }
+
+
+    nav{
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      margin: 0 18px;
+      font-weight: bold;
+      margin-top: 10px;
+       white-space: nowrap;
+    }
+
+    nav a:hover,
+    .ativo {
+      background: #5b3cc4;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 15px;
+    }
+
+    .linha {
+    width: 60px;
+    height: 4px;
+    background-color: #6B46E5;
+    border-radius: 10px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    }
+
+    .ativo{
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+    } 
+
+    ativo:hover {
+    background: #6f52e8;
+    transform: scale(1.05);
+}
+
+
+    .banner {
+      margin: 20px 40px;
+      padding: 60px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #f3eaff, #fff7e6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .banner h1 {
+      font-family: Georgia, serif;
+      font-size: 60px;
+      max-width: 520px;
+      margin-top: 20px;
+      white-space: nowrap;
+      margin-right: 30px;
+
+
+    }
+
+
+    .banner p {
+      font-size: 15px;
+      max-width: 500px;
+      line-height: 1.5;
+      background: #EDE6FF;
+      color: #6B46E5;
+    margin-right: 20px;
+      
+    }
+
+    .conteudo p{
+    color: #4D5870;
+    margin-bottom:  16px;
+    font-size: 18px;
+    margin-top: 35px;
+    }
+
+    .simbolo img{
+    width: 700px;
+     height: auto;
+     border-radius: 12px;
+     margin-left: -150px;
+
+}
+
+.estrela{
+    color: #8B5CF6;
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+    .projeto{
+        margin-left: 90px;
+        
+    }
+
+    .projeto h2{
+     font-family: Georgia, serif;
+     font-size: 35px;
+    }
+
+    .projeto span{
+        font-family: Georgia, serif;
+
+    }
+
+    .conteudo2 p{
+        margin-bottom: 16px;
+        margin-top: 20px;
+        font-size: 18px;
+
+
+    }
+
+    .conteudo2 {
+    max-width: 500px;
+    margin-top: 40px;
+    }
+
+    .simbolo2 img{
+    width: 450px;
+    height: auto;
+}
+
+    .projeto-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.como-utilizar{
+    margin-top: 80px;
+    margin-left: 90px;
+}
+
+.como-utilizar h2{
+    font-family: Georgia, serif;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.passos{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.passo{
+    width: 250px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.icone{
+    width: 60px;
+    height: 60px;
+    background: #EDE6FF;
+    color: #6B46E5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.passo h3{
+    font-family: Georgia, serif;
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+.passo p{
+
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.agradecimento{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+.agradecimento-card{
+    background: linear-gradient(120deg, #f3eaff, #fff7e6);
+    padding: 60px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 900px;
+}
+
+.icone-final{
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #6B46E5;
+}
+
+.agradecimento-card h2{
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: #6B46E5;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    margin-left: -60px;
+}
+
+.agradecimento-card p{
+    color: #6B46E5;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+    <header>
+    <div class="logo">
+      <span>𝄞</span>
+      <div>
+        <h1>Partitura Fácil</h1>
+        <p>Aprenda música passo a passo.</p>
+      </div>
+    </div> 
+    
+    <nav>
+      <a href="project.html" class="ativo">Início</a>
+      <a href="miniaulas.html" class="ativo">Aulas</a>
+      <a href="atividades.html" class="ativo">Atividades</a>
+      <a href="https://chatgpt.com/g/g-6a2003515d748191a721204fae2d2b60-professor-de-ia" class="ativo">🤖 Assistente com IA</a>
+    </nav>
+  </header>
+
+  <main>
+
+  <div class="banner">
+
+<div>
+
+<p>
+QUEM SOMOS
+</p>
+
+<h1>
+Partitura Fácil
+</h1>
+
+
+<div class="linha"></div>
+
+<div class="conteudo">
+
+<p>O Site Partitura Fácil é uma plataforma criada para ajudar iniciantes a entender o básico sobre a leitura de partituras de forma simples, prática e organizada</p>
+<p>Nosso objetivo é tornar o estudo da música mais acessível para todos, especialmente para quem está dando os primeiros passos no aprendizado musical.</p>
+ 
+</div>
+
+</div>
+ 
+<div class="simbolo">
+
+    <img src="conteudo.png" alt="imagem">
+
+</div>
+
+</div>
+
+<section>
+
+    <div>
+
+    <div class="projeto-container">
+
+    <div class="projeto">
+
+    <h2><span class="estrela">★</span> Nosso Projeto</h2>
+
+    <div class="conteudo2">
+
+    <p>
+        Atualmente, o Partitura Fácil é um projeto em desenvolvimento.
+        Estamos trabalhando para adicionar novas aulas,
+        atividades, exercícios e recursos que auxiliem no aprendizado
+        da leitura musical.
+    </p>
+
+    <p>
+        Ao longo do tempo, nossa biblioteca de
+        conteúdos será ampliada, disponibilizando novas aulas, exercícios
+        e ferramentas que os ajudem a evoluírem cada vez mais.
+    </p>
+
+    </div>
+
+    </div>
+
+    <div class="simbolo2">
+
+    <img src="conteudo2.png" alt="imagem">
+
+    </div>
+
+    </div>
+
+    </div>
+
+    <section class="como-utilizar">
+
+    <h2><span class="estrela">★</span> Como Utilizar o Site</h2>
+
+    <div class="passos">
+
+        <div class="passo">
+            <div class="icone">📚</div>
+            <h3>Passo 1</h3>
+            <p>Assista às mini aulas disponíveis na plataforma.</p>
+        </div>
+
+        <div class="passo">
+            <div class="icone">📝</div>
+            <h3>Passo 2</h3>
+            <p>Realize as atividades para praticar o conteúdo estudado.</p>
+        </div>
+
+        <div class="passo">
+            <div class="icone">🤖</div>
+            <h3>Passo 3</h3>
+            <p>Utilize o Assistente com IA sempre que tiver dúvidas.</p>
+        </div>
+
+
+    </div>
+
+    <section class="agradecimento">
+
+    <div class="agradecimento-card">
+
+
+
+        <h2>Obrigado por fazer parte do Partitura Fácil! ♫</h2>
+
+        <p>
+            Vamos juntos nessa jornada musical!
+        </p>
+
+    </div>
+
+</section>
+
+
+</section>
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partitura Fácil</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fffdf8;
+      color: #0b1b3f;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      font-size: 45px;
+
+    }
+
+    .logo h1 {
+      font-family: Georgia, serif;
+
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 0px;
+      margin-left: 0px; 
+    }
+
+
+    nav{
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      margin: 0 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    nav a:hover,
+    .ativo {
+      background: #5b3cc4;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 15px;
+    }
+
+    .ativo{
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+    } 
+
+    ativo:hover {
+    background: #6f52e8;
+    transform: scale(1.05);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 30px 60px;
+}
+
+/* MENU LATERAL */
+.sidebar {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.voltar {
+    color: #5b35d5;
+    font-weight: bold;
+    margin-bottom: 35px;
+    text-decoration: none;
+}
+
+.aula-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.icone {
+    background: #eee5ff;
+    color: #5b35d5;
+    font-size: 250px;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.aula-info h2 {
+    font-family: Georgia, serif;
+      font-size: 70px;
+      max-width: 700px;
+}
+
+.aula-info span {
+    color: #5b35d5 ;
+}
+
+.aula-info p {
+    color: #4d5870;
+    margin-top: 8px;
+}
+
+.progresso-texto {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.barra {
+    height: 8px;
+    background: #e8defc;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.barra div {
+    width: 40%;
+    height: 100%;
+    background: #5b35d5;
+    border-radius: 10px;
+}
+
+.questoes {
+    margin-top: 30px;
+}
+
+.questoes div {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.questoes .selecionada {
+    background: #eee5ff;
+    color: #5b35d5;
+}
+
+.bolinha {
+    background: #5b35d5;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.atividade{
+
+background:white;
+
+padding:30px;
+
+border-radius:18px;
+
+max-width:700px;
+
+margin:40px auto;
+
+box-shadow:0 5px 15px #0002;
+
+}
+
+.atividade h2{
+
+font-size:28px;
+
+margin-bottom:25px;
+
+color:#0b1b3f;
+
+white-space:nowrap;
+
+}
+
+.atividade label{
+
+display:block;
+
+padding:15px;
+
+margin:12px 0;
+
+background:#f3eaff;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:18px;
+
+transition:0.2s;
+
+white-space: nowrap;
+
+}
+
+.atividade label:hover{
+
+background:#e6d8ff;
+
+}
+
+.atividade input{
+
+margin-right:12px;
+
+transform:scale(1.3);
+
+}
+
+.texto {
+    white-space: nowrap;
+}
+
+.gabarito{
+   font-family: Georgia, serif;
+   margin-top: 30px;
+   margin-left: 30px;
+}
+
+.gabarito p{
+  display: block;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+      <span>𝄞</span>
+      <div>
+        <h1>Partitura Fácil</h1>
+        <p>Aprenda música passo a passo.</p>
+      </div>
+    </div> 
+    
+    <nav>
+     <a href="project.html" class="ativo">Início</a>
+      <a href="miniaulas.html" class="ativo">Aulas</a>
+      <a href="atividades.html" class="ativo">Atividades</a>
+    </nav>
+
+  </header>
+
+  <main class="container">
+
+  <aside class="sidebar">
+      <a href="atividades.html" class="voltar">
+            ← Voltar para atividades
+      </a>
+    <div class="aula-info">
+    <div class="icone">🎼</div>
+    <div>
+      <h2>O que é <span>uma partitura?</span> </h2>
+      <p>Aprenda as partes básicas e como a música é escrita, de acordo com oque aprendeu na atividade 1.</p>
+    </div>
+  </div>
+
+
+  <div class="questoes">
+            <div class="selecionada"><span class="bolinha">1</span> Questão 1</div>
+
+  <div class="atividade">
+
+<h2>Com qual intuito a partitura foi criada?</h2>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+A) Escutar a música
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+B) Passar a música para outras pessoas
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+C) Para os pianistas
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+D) Como uma forma de leitura e escrita de música
+
+</label>
+
+</div>
+
+
+<div><span class="bolinha">2</span> Questão 2</div>
+
+<div class="atividade">
+
+<h2>A Partitura serve para quais instrumentos?</h2>
+
+<label>
+
+<input type="radio" name="pergunta2">
+
+A) Piano e teclado
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta2">
+
+B) Violino
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta2"> 
+
+C) É uma escrita de música universal.
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta2">
+
+D) Bateria
+
+</label>
+
+</div>
+
+<div><span class="bolinha">3</span> Questão 3</div>
+
+<div class="atividade">
+
+<h2>Existem outros meios de se escrever e ler música?</h2>
+
+<label>
+
+<input type="radio" name="pergunta3">
+
+A) Sim
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta3">
+
+B)Não
+
+</label>
+
+</div>
+
+  <div><span class="bolinha">4</span> Questão 4</div>
+
+  <div class="atividade">
+
+<h2>Qual sistema de leitura musical mais completa que existe?</h2>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+A) Partitura
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+B) Tablatura
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+C) Cifras
+
+</label>
+
+<label>
+
+<input type="radio" name="pergunta1">
+
+D) Não existe um mais completo que outro
+
+</label>
+
+</div>
+
+  <div class="gabarito">
+
+    <h2>📚 Gabarito:</h2>
+    <p>Questão 1: Alternativa D</p>
+    <p>Questão 2: Alternativa C</p>
+    <p>Questão 3: Alternativa A</p>
+    <p>Questão 4: Alternativa D</p>
+
+  </div>
+
+
+        </div>
+    </aside>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

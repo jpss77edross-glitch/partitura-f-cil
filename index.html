@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partitura Fácil</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fffdf8;
+      color: #0b1b3f;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      font-size: 45px;
+    }
+
+    .logo h1 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      margin: 0 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    .ativo {
+      background: #5b3cc4;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 15px;
+    }
+
+    .perfil {
+      background: #5b3cc4;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 22px;
+    }
+
+    .banner {
+      margin: 20px 40px;
+      padding: 60px;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #f3eaff, #fff7e6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .banner h2 {
+      font-family: Georgia, serif;
+      font-size: 55px;
+      max-width: 520px;
+    }
+
+    .banner h2 span {
+      color: #5b3cc4;
+    }
+
+    .banner p {
+      font-size: 20px;
+      margin: 25px 0;
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .banner button {
+      background: #5b3cc4;
+      color: white;
+      border: none;
+      padding: 18px 35px;
+      font-size: 18px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    .caderno {
+      font-size: 150px;
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px #0002;
+    }
+
+    section {
+      padding: 25px 40px;
+    }
+
+    .titulo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      padding: 25px;
+      min-height: 260px;
+      box-shadow: 0 5px 15px #0001;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .numero {
+      width: 35px;
+      height: 35px;
+      background: #5b3cc4;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card img,
+    .icone {
+      font-size: 70px;
+      margin: 10px 0;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .barra {
+      width: 100%;
+      height: 8px;
+      background: #e6e6e6;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .progresso {
+      height: 100%;
+      background: #4caf75;
+      border-radius: 10px;
+    }
+
+    .atividades-quiz {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      padding: 25px 40px;
+    }
+
+    .atividades {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .atividade {
+      background: #f0f6ee;
+      border-radius: 14px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .atividade:nth-child(2) {
+      background: #f0e9ff;
+    }
+
+    .atividade:nth-child(3) {
+      background: #fff1d6;
+    }
+
+    .atividade:nth-child(4) {
+      background: #eaf3ff;
+    }
+
+    .atividade .icone {
+      font-size: 50px;
+    }
+
+    .atividade button {
+      margin-top: 18px;
+      border: none;
+      background: #5b3cc4;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .quiz {
+      background: #f5edff;
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .quiz h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .partitura {
+      font-size: 70px;
+      margin: 20px 0;
+    }
+
+    .opcoes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .opcoes button {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+
+    .quiz .responder {
+      margin-top: 25px;
+      background: #5b3cc4;
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .meu-progresso {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      max-width: 750px;
+    }
+
+    .box-progresso {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 25px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .circulo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 14px solid #4caf75;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #f6f1ef;
+      padding: 35px 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer h2 {
+      font-family: Georgia, serif;
+    }
+
+    @media (max-width: 900px) {
+      header,
+      .banner,
+      footer {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+      }
+
+      .cards,
+      .atividades,
+      .atividades-quiz,
+      .meu-progresso {
+        grid-template-columns: 1fr;
+      }
+
+      .banner h2 {
+        font-size: 38px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <span>𝄞</span>
+      <div>
+        <h1>Partitura Fácil</h1>
+        <p>Aprenda música passo a passo.</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#" class="ativo">Início</a>
+      <a href="#">Mini Aulas</a>
+      <a href="#">Atividades</a>
+      <a href="#">Quiz</a>
+      <a href="#">Meu Progresso</a>
+    </nav>
+
+    <div class="perfil">👤</div>
+  </header>
+
+  <main>
+    <div class="banner">
+      <div>
+        <h2>Aprenda partituras <span>de um jeito simples</span></h2>
+        <p>Mini aulas, exercícios e quizzes para você entender notas, ritmos e leitura musical.</p>
+        <button>♫ Começar agora</button>
+      </div>
+
+      <div class="caderno">
+        <img src="">
+
+      </div>
+    
+
+    <section>
+      <h2 class="titulo">🎓 Mini Aulas</h2>
+
+      <div class="cards">
+        <div class="card">
+          <div class="numero">1</div>
+          <div class="icone">𝄞</div>
+          <p>Aula 1</p>
+          <h3>O que é uma partitura?</h3>
+          <p>Aprenda as partes básicas e como a música é escrita.</p>
+          <div class="barra"><div class="progresso" style="width: 80%;"></div></div>
+        </div>
+
+        <div class="card">
+          <div class="numero">2</div>
+          <div class="icone">🎵</div>
+          <p>Aula 2</p>
+          <h3>Clave de Sol</h3>
+          <p>Entenda onde ficam as notas na clave de sol.</p>
+          <div class="barra"><div class="progresso" style="width: 50%;"></div></div>
+        </div>
+
+        <div class="card">
+          <div class="numero">3</div>
+          <div class="icone">♩♪</div>
+          <p>Aula 3</p>
+          <h3>Figuras musicais</h3>
+          <p>Semínima, mínima, colcheia e pausas.</p>
+          <div class="barra"><div class="progresso" style="width: 10%;"></div></div>
+        </div>
+
+        <div class="card">
+          <div class="numero">4</div>
+          <div class="icone">🎹</div>
+          <p>Aula 4</p>
+          <h3>Tocando no teclado</h3>
+          <p>Leia e toque notas simples no teclado.</p>
+          <div class="barra"><div class="progresso" style="width: 0%;"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="atividades-quiz">
+      <div>
+        <h2 class="titulo">✏️ Atividades</h2>
+
+        <div class="atividades">
+          <div class="atividade">
+            <div class="icone">📝</div>
+            <h3>Complete a nota correta</h3>
+            <button>Começar</button>
+          </div>
+
+          <div class="atividade">
+            <div class="icone">🎵</div>
+            <h3>Identifique a figura musical</h3>
+            <button>Começar</button>
+          </div>
+
+          <div class="atividade">
+            <div class="icone">🎹</div>
+            <h3>Toque a sequência no teclado</h3>
+            <button>Começar</button>
+          </div>
+
+          <div class="atividade">
+            <div class="icone">🎼</div>
+            <h3>Arraste a nota para o lugar certo</h3>
+            <button>Começar</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="titulo">❔ Quiz</h2>
+
+        <div class="quiz">
+          <h3>Qual nota fica na segunda linha da clave de sol?</h3>
+          <div class="partitura">𝄞 ━━━●━━━</div>
+
+          <div class="opcoes">
+            <button>A) Dó</button>
+            <button>B) Sol</button>
+            <button>C) Mi</button>
+            <button>D) Lá</button>
+          </div>
+
+          <button class="responder">Responder Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="titulo">📊 Meu Progresso</h2>
+
+      <div class="meu-progresso">
+        <div class="box-progresso">
+          <div class="circulo">45%</div>
+          <div>
+            <p>✅ Aulas concluídas: <strong>3/10</strong></p>
+            <p>🎯 Quizzes feitos: <strong>2</strong></p>
+            <p>⭐ Pontuação: <strong>80 pontos</strong></p>
+          </div>
+        </div>
+
+        <div class="box-progresso">
+          <div>
+            <h3>🏆 Próxima meta</h3>
+            <p>Complete mais 2 aulas para ganhar 50 pontos!</p>
+            <div class="barra">
+              <div class="progresso" style="width: 60%; background:#5b3cc4;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <h2>𝄞 Partitura Fácil</h2>
+      <p>Aprenda música passo a passo.</p>
+    </div>
+
+    <div>
+      <h3>Navegação</h3>
+      <p>Início</p>
+      <p>Mini Aulas</p>
+      <p>Atividades</p>
+      <p>Quiz</p>
+    </div>
+
+    <div>
+      <h3>Sobre</h3>
+      <p>Um site para aprender partituras de forma simples e divertida.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
