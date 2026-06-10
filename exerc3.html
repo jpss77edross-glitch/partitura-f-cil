@@ -263,6 +263,79 @@ white-space: nowrap;
   margin-top: 20px;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr; /* Quebra as duas colunas do grid em uma só */
+    padding: 20px 40px;
+    gap: 25px;
+  }
+}
+
+/* Adaptação para Celulares (Telas de até 768px) */
+@media (max-width: 768px) {
+  /* Alinha o menu superior (Header) em coluna */
+  header {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+
+  /* Ajustes de preenchimento do container do conteúdo */
+  .container {
+    padding: 15px;
+  }
+
+  /* Faz com que textos longos de perguntas e respostas quebrem linha normalmente */
+  .atividade {
+    padding: 20px;
+    white-space: normal; /* Sobrescreve o 'nowrap' que cortava o box */
+  }
+
+  .atividade h2 {
+    font-size: 22px;
+    white-space: normal;
+  }
+
+  .atividade label {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .texto {
+    white-space: normal;
+  }
+
+  .gabarito {
+    margin-left: 10px;
+  }
+
+  .gabarito p {
+    white-space: normal;
+  }
+
+  /* Ajusta os dados da aula no menu lateral para o modo vertical */
+  .aula-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aula-info h2 {
+    font-size: 22px;
+  }
+}
+
 
 </style>
 
