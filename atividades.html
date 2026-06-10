@@ -305,6 +305,87 @@ transform:scale(1.05);
 
 }
 
+@media (max-width: 1024px) {
+      /* Em tablets e telas médias, exibe em duas colunas */
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* 1. Alinhamento do Menu (Header) */
+      header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        gap: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      /* 2. Alinhamento do Banner principal */
+      .banner {
+        flex-direction: column-reverse; /* Imagem em cima, textos embaixo */
+        margin: 15px;
+        padding: 25px 20px;
+        text-align: center;
+      }
+
+      .banner h2 {
+        font-size: 32px;
+      }
+
+      .banner p {
+        font-size: 16px;
+        margin: 15px 0;
+      }
+
+      .banner button {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .caderno img {
+        max-width: 220px;
+        margin-bottom: 15px;
+      }
+
+      /* 3. Textos de Títulos da Seção */
+      .topo-titulo {
+        margin-left: 20px;
+        text-align: center;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .titulo {
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      /* 4. Transformação dos Cards para 1 coluna */
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
 
 
 
