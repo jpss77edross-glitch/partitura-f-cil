@@ -263,6 +263,79 @@ white-space: nowrap;
   margin-top: 20px;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr; /* Quebra as duas colunas em uma só */
+    padding: 20px 40px;
+    gap: 25px;
+  }
+}
+
+/* Ajuste para Celulares (Até 768px) */
+@media (max-width: 768px) {
+  /* Header em coluna e centralizado */
+  header {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+
+  /* Ajustes do espaçamento do Container principal */
+  .container {
+    padding: 15px;
+  }
+
+  /* Mudança drástica para os textos longos não sumirem no celular */
+  .atividade {
+    padding: 20px;
+    white-space: normal; /* Sobrescreve o 'nowrap' antigo que cortava a caixa */
+  }
+
+  .atividade h2 {
+    font-size: 22px;
+    white-space: normal; /* Permite que o título da pergunta quebre linha */
+  }
+
+  .atividade label {
+    font-size: 16px;
+    white-space: normal; /* Permite que as alternativas grandes quebrem linha */
+  }
+
+  .texto {
+    white-space: normal;
+  }
+
+  .gabarito {
+    margin-left: 10px;
+  }
+
+  .gabarito p {
+    white-space: normal; /* Evita rolagem horizontal nas respostas do gabarito */
+  }
+
+  /* Ajuste das informações do topo da Sidebar */
+  .aula-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aula-info h2 {
+    font-size: 22px;
+  }
+}
+
 
 </style>
 
