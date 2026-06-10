@@ -334,6 +334,79 @@ opacity:0.7;
 
 }
 
+@media (max-width: 1024px) {
+      /* Em tablets, organiza em 2 colunas para não amassar muito */
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* 1. Header vira coluna no celular */
+      header {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        gap: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 5px;
+        font-size: 14px;
+      }
+
+      /* 2. Banner empilha os elementos verticalmente */
+      .banner {
+        flex-direction: column-reverse; /* Coloca a imagem no topo e texto embaixo */
+        margin: 15px;
+        padding: 25px 20px;
+        text-align: center;
+      }
+
+      .banner h2 {
+        font-size: 30px;
+      }
+
+      .banner p {
+        font-size: 16px;
+      }
+
+      .caderno img {
+        margin-right: 0; /* Remove o recuo que empurrava a imagem para fora no celular */
+        margin-bottom: 20px;
+        max-width: 220px; /* Reduz ligeiramente para se adequar ao visor móvel */
+      }
+
+      /* 3. Ajuste do título das seções */
+      .topo-aulas {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      /* 4. Grid vira 1 coluna (cards empilhados inteiros) */
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        align-items: center;
+        text-align: center;
+      }
+    }
+    
+
 
 
 </style>
